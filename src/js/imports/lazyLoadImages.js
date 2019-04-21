@@ -12,9 +12,11 @@ const lazyLoadImages = async () => {
     };
 
     // Check for IntersectionObserver support and load polyfill if needed
-    if (!('IntersectionObserver' in window)
+    if (
+        !('IntersectionObserver' in window)
         || !('IntersectionObserverEntry' in window)
-        || !('intersectionRatio' in window.IntersectionObserverEntry.prototype)) {
+        || !('intersectionRatio' in window.IntersectionObserverEntry.prototype)
+    ) {
         await import(/* webpackChunkName: 'intersection-observer' */ 'intersection-observer');
     }
 
