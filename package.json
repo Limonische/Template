@@ -21,7 +21,7 @@
         "babel-loader": "^8.0.5",
         "browserslist": "^4.5.5",
         "clean-webpack-plugin": "^2.0.1",
-        "copy-webpack-plugin": "^5.0.2",
+        "copy-webpack-plugin": "^5.0.3",
         "css-loader": "^2.1.1",
         "eslint": "^5.16.0",
         "eslint-config-airbnb-base": "^13.1.0",
@@ -47,7 +47,7 @@
     "dependencies": {
         "body-scroll-lock": "^2.6.1",
         "core-js": "^3.0.1",
-        "intersection-observer": "^0.5.1",
+        "intersection-observer": "^0.6.0",
         "object-fit-images": "^3.2.4",
         "requestidlecallback-polyfill": "^1.0.2"
     }
