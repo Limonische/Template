@@ -31,5 +31,7 @@ const htmlPlugins = generateHtmlPlugins('../src/pug/views');
 
 // Concatenate all instanses of HtmlWebpackPlugin to plugins
 module.exports = {
-    plugins: [].concat(htmlPlugins),
+    plugins: [
+        ...htmlPlugins,
+    ],
 };
