@@ -48,7 +48,7 @@
     "dependencies": {
         "axios": "^0.18.0",
         "body-scroll-lock": "^2.6.1",
-        "core-js": "^3.0.1",
+        "core-js": "^3.1.0",
         "intersection-observer": "^0.7.0",
         "object-fit-images": "^3.2.4",
         "requestidlecallback-polyfill": "^1.0.2"
