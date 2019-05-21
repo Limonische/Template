@@ -1,11 +1,11 @@
 doctype html
 html(lang="en")
 	block head
-		include partials/head
+		include ../partials/head
 	body
 		block beforeHeader
 		block header
-			include partials/header
+			include ../partials/header
 		block afterHeader
 		#wrapper
 			block beforeMainContent
@@ -14,6 +14,6 @@ html(lang="en")
 			block afterMainContent
 		block beforeFooter
 		block footer
-			include partials/footer
+			include ../partials/footer
 		block afterFooter
 		block bodyScripts
