@@ -1,4 +1,4 @@
-// Eslint configuration
+// Eslint configuration file
 
 module.exports = {
     parser: 'babel-eslint',

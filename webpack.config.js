@@ -1,4 +1,4 @@
-// Main webpack configuration
+// Main webpack configuration file
 
 const path = require('path');
 const merge = require('webpack-merge');
@@ -12,11 +12,9 @@ const devServer = require('./webpack/devServer');
 
 module.exports = (env, argv) => merge(
     {
-        // Entry JavaScript files
         entry: {
             main: './src/js/main.js',
         },
-        // Output JavaScript files
         output: {
             filename: './js/[name].bundle.js',
             chunkFilename: './js/[name].bundle.js',
@@ -30,7 +28,6 @@ module.exports = (env, argv) => merge(
             modules: false,
         },
         optimization: {
-            // Plugins for CSS and JavaScript minification
             minimizer: [
                 new UglifyJsPlugin({
                     cache: true,
@@ -64,6 +61,6 @@ module.exports = (env, argv) => merge(
     },
     // Merge common module
     common(env, argv),
-    // Merge other modules depending on mode
+    // Merge devServer depending on mode
     argv.mode === 'development' ? devServer(env, argv) : null,
 );

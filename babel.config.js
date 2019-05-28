@@ -1,4 +1,4 @@
-// Babel configuration
+// Babel configuration file
 
 module.exports = api => {
     api.cache(true);

@@ -21,7 +21,6 @@ module.exports = {
         ],
     },
     plugins: [
-        // Move images from src/images to dist/images
         new CopyWebpackPlugin([
             {
                 from: './src/images',

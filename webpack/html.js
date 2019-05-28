@@ -29,9 +29,7 @@ function generateHtmlPlugins(templateDir) {
 
 const htmlPlugins = generateHtmlPlugins('../src/pug/views');
 
-// Concatenate all instanses of HtmlWebpackPlugin to plugins
+// Add all instanses of HtmlWebpackPlugin to plugins
 module.exports = {
-    plugins: [
-        ...htmlPlugins,
-    ],
+    plugins: [...htmlPlugins],
 };

@@ -34,7 +34,6 @@ module.exports = (env, argv) => ({
         // Open default browser after compilation
         open: true,
         port: 3000,
-        // Hot Module Replacement
         hot: true,
         disableHostCheck: true,
         // Remove unnecessary stats
