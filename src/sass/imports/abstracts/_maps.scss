@@ -3,14 +3,14 @@
 // Colors
 $colors: (
     white: (
-        1000: hsl(0, 0%, 100%)
+        1000: hsl(0, 0%, 100%),
     ),
     black: (
-        1000: hsl(0, 0%, 0%)
-    )
+        1000: hsl(0, 0%, 0%),
+    ),
 );
 
 // Fonts
 $fonts: (
-    main: $pn-r
+    main: $pn-r,
 );
