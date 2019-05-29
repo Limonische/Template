@@ -28,6 +28,7 @@ module.exports = (env, argv) => merge(
             modules: false,
         },
         optimization: {
+            // Minify JavaScript and CSS
             minimizer: [
                 new UglifyJsPlugin({
                     cache: true,
@@ -61,6 +62,6 @@ module.exports = (env, argv) => merge(
     },
     // Merge common module
     common(env, argv),
-    // Merge devServer depending on mode
+    // Merge devServer for development
     argv.mode === 'development' ? devServer(env, argv) : null,
 );

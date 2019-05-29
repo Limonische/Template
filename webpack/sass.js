@@ -8,7 +8,7 @@ module.exports = (env, argv) => ({
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    // Extract css into separate files for production
+                    // Extract CSS into separate files for production
                     argv.mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
                     {
                         loader: 'css-loader',
@@ -33,7 +33,7 @@ module.exports = (env, argv) => ({
         ],
     },
     plugins: [
-        // Extract css into separate files for production
+        // Extract CSS into separate files for production
         new MiniCssExtractPlugin({
             filename: './css/[name].css',
         }),

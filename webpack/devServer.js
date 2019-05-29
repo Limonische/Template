@@ -1,3 +1,5 @@
+// Development server configuration file
+
 const webpack = require('webpack');
 
 let devServer;
