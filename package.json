@@ -7,7 +7,9 @@
     "scripts": {
         "dev": "webpack-dev-server --mode=development --progress",
         "prod": "webpack --mode=production --progress",
-        "share": "webpack-dev-server --mode=development --progress --share"
+        "share": "webpack-dev-server --mode=development --progress --share",
+        "lint": "eslint . && echo Lint complete",
+        "lintfix": "eslint . --fix && echo Lintfix complete"
     },
     "author": "Nikita Gulis",
     "license": "ISC",
