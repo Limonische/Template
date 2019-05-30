@@ -1,0 +1,6 @@
+# List of files and directories for eslint to ignore
+
+.vscode
+node_modules
+dist
+!.eslintrc.js
