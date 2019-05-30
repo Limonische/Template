@@ -40,5 +40,20 @@ npm run share
 
 This command will open dev server on port 0.0.0.0
 
+### Linting
+
+To lint your project run the following command
+
+```npm
+npm run lint
+```
+
+To lint and fix some of the problems run the following command
+
+```npm
+npm run lintfix
+```
+
 ## License
+
 [ISC](https://choosealicense.com/licenses/isc/)
