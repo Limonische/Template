@@ -2,10 +2,7 @@ import { intersectionObserverPolyfill, requestIdleCallbackPolyfill } from './pol
 
 // Lazy loading for images
 const lazyLoadImages = async () => {
-    const polyfills = [
-        intersectionObserverPolyfill(),
-        requestIdleCallbackPolyfill(),
-    ];
+    const polyfills = [intersectionObserverPolyfill(), requestIdleCallbackPolyfill()];
 
     await Promise.all(polyfills);
 

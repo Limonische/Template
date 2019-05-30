@@ -18,7 +18,4 @@ const requestIdleCallbackPolyfill = () => {
     return null;
 };
 
-export {
-    intersectionObserverPolyfill,
-    requestIdleCallbackPolyfill,
-};
+export { intersectionObserverPolyfill, requestIdleCallbackPolyfill };
