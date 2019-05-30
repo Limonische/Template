@@ -1,8 +1,8 @@
 const intersectionObserverPolyfill = () => {
     if (
-        !('IntersectionObserver' in window)
-        || !('IntersectionObserverEntry' in window)
-        || !('intersectionRatio' in window.IntersectionObserverEntry.prototype)
+        !('IntersectionObserver' in window) ||
+        !('IntersectionObserverEntry' in window) ||
+        !('intersectionRatio' in window.IntersectionObserverEntry.prototype)
     ) {
         return import(/* webpackChunkName: 'intersection-observer' */ 'intersection-observer');
     }

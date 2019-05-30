@@ -2,7 +2,8 @@
 
 module.exports = {
     parser: 'babel-eslint',
-    extends: 'airbnb-base',
+    extends: ['airbnb-base', 'prettier'],
+    plugins: ['prettier'],
     env: {
         browser: true,
     },
@@ -24,6 +25,7 @@ module.exports = {
                 ignoreTemplateLiterals: true,
             },
         ],
+        'prettier/prettier': 'error',
     },
     overrides: [
         {
