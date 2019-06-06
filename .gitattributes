@@ -1,0 +1,11 @@
+* text=auto
+.* text eol=lf
+*.html text eol=lf
+*.pug text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.sass text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.svg text eol=lf
