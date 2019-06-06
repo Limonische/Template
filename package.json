@@ -2,7 +2,7 @@
     "name": "template",
     "version": "1.0.0",
     "description": "template for future projects",
-    "repository": "github:Limonische/template",
+    "repository": "github:Limonische/Template",
     "main": "index.js",
     "scripts": {
         "dev": "webpack-dev-server --mode=development --progress",
