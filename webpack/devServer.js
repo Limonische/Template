@@ -38,6 +38,7 @@ module.exports = (env, argv) => ({
         port: 3000,
         hot: true,
         disableHostCheck: true,
+        overlay: true,
         // Remove unnecessary stats
         stats: {
             entrypoints: false,
