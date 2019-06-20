@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlBeautifyWebpackPlugin = require('html-beautify-webpack-plugin');
 
 // Generate HTML pages from .pug files
 function generateHtmlPlugins(templateDir) {
@@ -29,7 +30,22 @@ function generateHtmlPlugins(templateDir) {
 
 const htmlPlugins = generateHtmlPlugins('../src/pug/views');
 
-// Add all instanses of HtmlWebpackPlugin to plugins
 module.exports = {
-    plugins: [...htmlPlugins],
+    plugins: [
+        // Add all instanses of HtmlWebpackPlugin to plugins
+        ...htmlPlugins,
+        // Beautify HTML output
+        new HtmlBeautifyWebpackPlugin({
+            config: {
+                html: {
+                    editorconfig: true,
+                    end_with_newline: true,
+                    preserve_newlines: true,
+                    indent_inner_html: true,
+                    wrap_line_length: 0,
+                    unformatted: ['p', 'i', 'b', 'span'],
+                },
+            },
+        }),
+    ],
 };
