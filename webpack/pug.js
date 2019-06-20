@@ -5,14 +5,7 @@ module.exports = {
         rules: [
             {
                 test: /\.pug$/,
-                use: [
-                    {
-                        loader: 'pug-loader',
-                        options: {
-                            pretty: true,
-                        },
-                    },
-                ],
+                use: 'pug-loader',
             },
         ],
     },
