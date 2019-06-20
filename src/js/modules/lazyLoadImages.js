@@ -14,6 +14,7 @@ const lazyLoadImages = async () => {
 
         if (src) lazyImage.src = src;
         if (srcset) lazyImage.srcset = srcset;
+        if (src && !srcset) lazyImage.srcset = '';
 
         lazyImage.classList.remove('lazy');
     };
