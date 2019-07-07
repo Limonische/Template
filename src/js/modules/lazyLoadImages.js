@@ -9,15 +9,20 @@ const lazyLoadImages = async () => {
     const lazyImages = [...document.querySelectorAll('img.lazy')];
 
     // Load selected image
-    const loadLazyImage = lazyImage => {
-        const { src, srcset } = lazyImage.dataset;
+    const loadLazyImage = lazyImage =>
+        new Promise(resolve => {
+            if (!lazyImage.classList.contains('lazy')) resolve();
 
-        if (src) lazyImage.src = src;
-        if (srcset) lazyImage.srcset = srcset;
-        if (src && !srcset) lazyImage.srcset = '';
+            const { src, srcset } = lazyImage.dataset;
 
-        lazyImage.classList.remove('lazy');
-    };
+            lazyImage.addEventListener('load', resolve);
+
+            if (src) lazyImage.src = src;
+            if (srcset) lazyImage.srcset = srcset;
+            if (src && !srcset) lazyImage.srcset = '';
+
+            lazyImage.classList.remove('lazy');
+        });
 
     // Create observer for lazy images
     const lazyImageObserver = new IntersectionObserver(entries => {
@@ -31,16 +36,31 @@ const lazyLoadImages = async () => {
         });
     });
 
+    // Load images in batches when browser is idle
+    const loadImagesWhenIdle = () => {
+        requestIdleCallback(async () => {
+            if (!lazyImages.length) return;
+
+            const idleImages = lazyImages.splice(0, 3);
+
+            idleImages.forEach(idleImage => lazyImageObserver.unobserve(idleImage));
+
+            await Promise.all(idleImages.map(idleImage => loadLazyImage(idleImage)));
+
+            setTimeout(() => {
+                loadImagesWhenIdle();
+            }, 500);
+        });
+    };
+
     lazyImages.forEach(lazyImage => {
         // Observe lazy images
         lazyImageObserver.observe(lazyImage);
-
-        // Load images when browser is free
-        requestIdleCallback(() => {
-            loadLazyImage(lazyImage);
-            lazyImageObserver.unobserve(lazyImage);
-        });
     });
+
+    setTimeout(() => {
+        loadImagesWhenIdle();
+    }, 1000);
 };
 
 export default lazyLoadImages;
