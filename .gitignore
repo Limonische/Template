@@ -1,5 +1,3 @@
-# List of files and directories for git to ignore
-
 .vscode
 node_modules
 dist

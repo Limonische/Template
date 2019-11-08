@@ -1,5 +1,3 @@
-// pug module
-
 export default {
     module: {
         rules: [

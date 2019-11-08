@@ -1,12 +1,9 @@
-// HTML module
-
 import { readdirSync } from 'fs';
 import { resolve } from 'path';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import HtmlBeautifyWebpackPlugin from 'html-beautify-webpack-plugin';
 
-// Generate HTML pages from .pug files
 function generateHtmlPlugins(templateDir) {
     const templateFiles = readdirSync(resolve(__dirname, templateDir));
 
@@ -32,9 +29,7 @@ const htmlPlugins = generateHtmlPlugins('../src/pug/views');
 
 export default {
     plugins: [
-        // Add all instanses of HtmlWebpackPlugin to plugins
         ...htmlPlugins,
-        // Beautify HTML output
         new HtmlBeautifyWebpackPlugin({
             config: {
                 html: {

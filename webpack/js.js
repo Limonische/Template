@@ -1,5 +1,3 @@
-// JavaScript module
-
 export default {
     module: {
         rules: [

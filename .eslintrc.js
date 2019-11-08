@@ -1,12 +1,8 @@
-// Eslint configuration file
-
 module.exports = {
     parser: 'babel-eslint',
     extends: ['airbnb-base', 'prettier'],
     plugins: ['prettier'],
-    env: {
-        browser: true,
-    },
+    env: { browser: true },
     rules: {
         indent: ['error', 4],
         'arrow-parens': ['error', 'as-needed'],

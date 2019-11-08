@@ -1,10 +1,6 @@
-// Functions file
-
-// Strip measurment units
 @function strip-unit($value)
 	@return $value / ($value * 0 + 1)
 
-// Get values from nested maps
 @function get($map, $keys...)
 	@each $key in $keys
 		$map: map-get($map, $key)

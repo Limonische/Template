@@ -1,5 +1,3 @@
-# List of files and directories for prettier to ignore
-
 .vscode
 node_modules
 dist

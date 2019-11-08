@@ -1,5 +1,3 @@
-// Fonts module
-
 export default {
     module: {
         rules: [

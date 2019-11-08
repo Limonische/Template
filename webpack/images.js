@@ -1,5 +1,3 @@
-// Images module
-
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 export default {

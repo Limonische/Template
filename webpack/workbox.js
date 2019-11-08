@@ -1,5 +1,3 @@
-// Workbox module for Service Worker
-
 import { GenerateSW } from 'workbox-webpack-plugin';
 
 export default {

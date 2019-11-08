@@ -1,6 +1,5 @@
 import { intersectionObserverPolyfill, requestIdleCallbackPolyfill } from './polyfills';
 
-// Lazy loading for images
 const lazyLoadImages = async () => {
     const polyfills = [intersectionObserverPolyfill(), requestIdleCallbackPolyfill()];
 
@@ -8,7 +7,6 @@ const lazyLoadImages = async () => {
 
     const lazyImages = [...document.querySelectorAll('img.lazy')];
 
-    // Load selected image
     const loadLazyImage = lazyImage =>
         new Promise((resolve, reject) => {
             if (!lazyImage.classList.contains('lazy')) resolve();
@@ -25,7 +23,6 @@ const lazyLoadImages = async () => {
             lazyImage.classList.remove('lazy');
         });
 
-    // Create observer for lazy images
     const lazyImageObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -37,7 +34,6 @@ const lazyLoadImages = async () => {
         });
     });
 
-    // Load images in batches when browser is idle
     const loadImagesWhenIdle = () => {
         requestIdleCallback(async () => {
             if (!lazyImages.length) return;
@@ -55,7 +51,6 @@ const lazyLoadImages = async () => {
     };
 
     lazyImages.forEach(lazyImage => {
-        // Observe lazy images
         lazyImageObserver.observe(lazyImage);
     });
 

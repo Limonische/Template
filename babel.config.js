@@ -1,13 +1,10 @@
-// Babel configuration file
-
-module.exports = api => {
-    api.cache(true);
+module.exports = ({ cache }) => {
+    cache(true);
 
     const presets = [
         [
             '@babel/preset-env',
             {
-                // Auto-inject only those polyfills that are needed
                 useBuiltIns: 'usage',
                 corejs: 3,
             },

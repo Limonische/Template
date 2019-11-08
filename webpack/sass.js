@@ -1,15 +1,12 @@
-// Module for Sass, SCSS and CSS
-
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-export default (env, argv) => ({
+export default (env, { mode }) => ({
     module: {
         rules: [
             {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
-                    // Extract CSS into separate files for production
-                    argv.mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+                    mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
                     {
                         loader: 'css-loader',
                         options: {
@@ -32,10 +29,5 @@ export default (env, argv) => ({
             },
         ],
     },
-    plugins: [
-        // Extract CSS into separate files for production
-        new MiniCssExtractPlugin({
-            filename: './css/[name].css',
-        }),
-    ],
+    plugins: [new MiniCssExtractPlugin({ filename: './css/[name].css' })],
 });

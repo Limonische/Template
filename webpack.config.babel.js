@@ -1,5 +1,3 @@
-// Main webpack configuration file
-
 import merge from 'webpack-merge';
 import { resolve } from 'path';
 
@@ -21,7 +19,6 @@ export default (env, argv) =>
                 chunkFilename: './js/[name].bundle.js',
                 path: resolve(__dirname, 'dist'),
             },
-            // Remove unnecessary stats
             stats: {
                 entrypoints: false,
                 children: false,
@@ -29,7 +26,6 @@ export default (env, argv) =>
                 modules: false,
             },
             optimization: {
-                // Minify JavaScript and CSS
                 minimizer: [
                     new UglifyJsPlugin({
                         cache: true,
@@ -38,7 +34,6 @@ export default (env, argv) =>
                     }),
                     new OptimizeCSSAssetsPlugin({}),
                 ],
-                // Split JavaScript files into separate chunks
                 splitChunks: {
                     cacheGroups: {
                         commons: {
@@ -57,12 +52,9 @@ export default (env, argv) =>
                     },
                 },
             },
-            // Add source maps for development
             devtool: argv.mode === 'development' ? 'source-map' : false,
             plugins: [new CleanWebpackPlugin()],
         },
-        // Merge common module
         common(env, argv),
-        // Merge devServer for development
         argv.mode === 'development' ? devServer(env, argv) : null,
     );

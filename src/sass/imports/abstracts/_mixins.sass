@@ -1,10 +1,6 @@
-// Mixins file
-
-// Transition
 =transition($type: all, $time: .3s, $transition: ease-in-out)
 	transition: $type $time $transition
 
-// Fluid font size
 =fluidType($min-vw, $max-vw, $min-fs, $max-fs)
 	$u1: unit($min-vw)
 	$u2: unit($max-vw)
@@ -18,7 +14,6 @@
 		@media screen and (min-width: $max-vw)
 			font-size: $max-fs
 
-// Media queries
 =media($width...)
 	@if length($width) == 1
 		@media screen and (min-width: nth($width, 1))
@@ -27,14 +22,12 @@
 		@media screen and (min-width: nth($width, 1)) and (max-width: nth($width, 2))
 			@content
 
-// ClearFix for float
 =clearFix
 	&:after
 		content: ''
 		display: block
 		clear: both
 
-// Background for buttons
 =btnBg($bg, $percentage, $mode: 'darken')
 	background-color: $bg
 	&:hover
@@ -43,7 +36,6 @@
 		@if $mode == 'lighten'
 			background-color: lighten($bg, $percentage)
 
-// Grid based on float for browsers without css grid layout support
 =floatGrid($columns, $margin)
 	float: left
 	margin: ($margin / 2)
@@ -51,7 +43,6 @@
 	&.long
 		width: calc(((100% - #{$margin * $columns}) / #{$columns}) * 2 + #{$margin} - 1px)
 
-// object-fit for browsers without support
 =objectFit($fit: cover, $position: null)
 	object-fit: $fit
 	@if $position

@@ -1,5 +1,3 @@
-// Prettier configuration file
-
 module.exports = {
     printWidth: 120,
     tabWidth: 4,
