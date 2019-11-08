@@ -7,7 +7,6 @@ module.exports = api => {
         [
             '@babel/preset-env',
             {
-                modules: false,
                 // Auto-inject only those polyfills that are needed
                 useBuiltIns: 'usage',
                 corejs: 3,
