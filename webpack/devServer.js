@@ -1,6 +1,6 @@
 // Development server configuration file
 
-const webpack = require('webpack');
+import { HotModuleReplacementPlugin } from 'webpack';
 
 let devServer;
 
@@ -24,7 +24,7 @@ function reloadHtml() {
 }
 
 // Local development server configuration
-module.exports = (env, argv) => ({
+export default (env, argv) => ({
     devServer: {
         // Is needed for html reload with HMR
         before(app, server) {
@@ -47,5 +47,5 @@ module.exports = (env, argv) => ({
             modules: false,
         },
     },
-    plugins: [new webpack.HotModuleReplacementPlugin(), reloadHtml],
+    plugins: [new HotModuleReplacementPlugin(), reloadHtml],
 });

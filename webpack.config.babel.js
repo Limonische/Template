@@ -1,16 +1,16 @@
 // Main webpack configuration file
 
-const path = require('path');
-const merge = require('webpack-merge');
+import merge from 'webpack-merge';
+import { resolve } from 'path';
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin';
+import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 
-const common = require('./webpack/common');
-const devServer = require('./webpack/devServer');
+import common from './webpack/common';
+import devServer from './webpack/devServer';
 
-module.exports = (env, argv) =>
+export default (env, argv) =>
     merge(
         {
             entry: {
@@ -19,7 +19,7 @@ module.exports = (env, argv) =>
             output: {
                 filename: './js/[name].bundle.js',
                 chunkFilename: './js/[name].bundle.js',
-                path: path.resolve(__dirname, 'dist'),
+                path: resolve(__dirname, 'dist'),
             },
             // Remove unnecessary stats
             stats: {

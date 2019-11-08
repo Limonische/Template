@@ -1,14 +1,14 @@
 // HTML module
 
-const fs = require('fs');
-const path = require('path');
+import { readdirSync } from 'fs';
+import { resolve } from 'path';
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlBeautifyWebpackPlugin = require('html-beautify-webpack-plugin');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import HtmlBeautifyWebpackPlugin from 'html-beautify-webpack-plugin';
 
 // Generate HTML pages from .pug files
 function generateHtmlPlugins(templateDir) {
-    const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+    const templateFiles = readdirSync(resolve(__dirname, templateDir));
 
     return templateFiles.map(item => {
         const parts = item.split('.');
@@ -17,7 +17,7 @@ function generateHtmlPlugins(templateDir) {
 
         return new HtmlWebpackPlugin({
             filename: `${name}.html`,
-            template: path.resolve(__dirname, `${templateDir}/${name}.${extension}`),
+            template: resolve(__dirname, `${templateDir}/${name}.${extension}`),
             inject: 'body',
             minify: {
                 removeComments: true,
@@ -30,7 +30,7 @@ function generateHtmlPlugins(templateDir) {
 
 const htmlPlugins = generateHtmlPlugins('../src/pug/views');
 
-module.exports = {
+export default {
     plugins: [
         // Add all instanses of HtmlWebpackPlugin to plugins
         ...htmlPlugins,

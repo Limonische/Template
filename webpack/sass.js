@@ -1,8 +1,8 @@
 // Module for Sass, SCSS and CSS
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-module.exports = (env, argv) => ({
+export default (env, argv) => ({
     module: {
         rules: [
             {

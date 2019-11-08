@@ -1,6 +1,6 @@
 // Fonts module
 
-module.exports = {
+export default {
     module: {
         rules: [
             {

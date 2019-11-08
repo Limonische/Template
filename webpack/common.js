@@ -1,14 +1,14 @@
 // Common module for development and production
 
-const merge = require('webpack-merge');
+import merge from 'webpack-merge';
 
-const pug = require('./pug');
-const sass = require('./sass');
-const images = require('./images');
-const fonts = require('./fonts');
-const js = require('./js');
-const html = require('./html');
-const workbox = require('./workbox');
+import pug from './pug';
+import sass from './sass';
+import images from './images';
+import fonts from './fonts';
+import js from './js';
+import html from './html';
+import workbox from './workbox';
 
 // Merge all common modules
-module.exports = (env, argv) => merge(sass(env, argv), pug, images, fonts, js, html, workbox);
+export default (env, argv) => merge(sass(env, argv), pug, images, fonts, js, html, workbox);

@@ -1,8 +1,8 @@
 // Workbox module for Service Worker
 
-const { GenerateSW } = require('workbox-webpack-plugin');
+import { GenerateSW } from 'workbox-webpack-plugin';
 
-module.exports = {
+export default {
     plugins: [
         new GenerateSW({
             clientsClaim: true,
