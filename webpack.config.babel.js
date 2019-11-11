@@ -54,6 +54,11 @@ export default (env, argv) =>
             },
             devtool: argv.mode === 'development' ? 'source-map' : false,
             plugins: [new CleanWebpackPlugin()],
+            resolve: {
+                alias: {
+                    '@': resolve(__dirname, 'src'),
+                },
+            },
         },
         common(env, argv),
         argv.mode === 'development' ? devServer(env, argv) : null,
