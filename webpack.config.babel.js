@@ -8,7 +8,7 @@ import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import common from './webpack/common';
 import devServer from './webpack/devServer';
 
-export default (env, argv) =>
+export default (_, { mode, share }) =>
     merge(
         {
             entry: {
@@ -30,7 +30,7 @@ export default (env, argv) =>
                     new UglifyJsPlugin({
                         cache: true,
                         parallel: true,
-                        sourceMap: argv.mode === 'development',
+                        sourceMap: mode === 'development',
                     }),
                     new OptimizeCSSAssetsPlugin({}),
                 ],
@@ -52,7 +52,7 @@ export default (env, argv) =>
                     },
                 },
             },
-            devtool: argv.mode === 'development' ? 'source-map' : false,
+            devtool: mode === 'development' ? 'source-map' : false,
             plugins: [new CleanWebpackPlugin()],
             resolve: {
                 alias: {
@@ -60,6 +60,6 @@ export default (env, argv) =>
                 },
             },
         },
-        common(env, argv),
-        argv.mode === 'development' ? devServer(env, argv) : null,
+        common(mode),
+        mode === 'development' ? devServer(share) : null,
     );

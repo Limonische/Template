@@ -1,6 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-export default (env, { mode }) => ({
+export default mode => ({
     module: {
         rules: [
             {

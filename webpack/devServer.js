@@ -18,9 +18,9 @@ function reloadHtml() {
     });
 }
 
-export default (env, { share }) => ({
+export default share => ({
     devServer: {
-        before(app, server) {
+        before(_, server) {
             devServer = server;
         },
         compress: true,

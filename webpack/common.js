@@ -8,4 +8,4 @@ import js from './js';
 import html from './html';
 import workbox from './workbox';
 
-export default (env, argv) => merge(sass(env, argv), pug, images, fonts, js, html, workbox);
+export default mode => merge(sass(mode), pug, images, fonts, js, html, workbox);
