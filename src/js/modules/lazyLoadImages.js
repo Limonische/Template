@@ -1,27 +1,27 @@
 import { intersectionObserverPolyfill, requestIdleCallbackPolyfill } from '@/js/modules/polyfills';
 
-const lazyLoadImages = async () => {
+const loadLazyImage = lazyImage =>
+    new Promise((resolve, reject) => {
+        if (!lazyImage.classList.contains('lazy')) resolve();
+
+        const { src, srcset } = lazyImage.dataset;
+
+        lazyImage.addEventListener('load', resolve);
+        lazyImage.addEventListener('error', reject);
+
+        if (src) lazyImage.src = src;
+        if (srcset) lazyImage.srcset = srcset;
+        if (src && !srcset) lazyImage.srcset = '';
+
+        lazyImage.classList.remove('lazy');
+    });
+
+export default async () => {
     const polyfills = [intersectionObserverPolyfill(), requestIdleCallbackPolyfill()];
 
     await Promise.all(polyfills);
 
     const lazyImages = [...document.querySelectorAll('img.lazy')];
-
-    const loadLazyImage = lazyImage =>
-        new Promise((resolve, reject) => {
-            if (!lazyImage.classList.contains('lazy')) resolve();
-
-            const { src, srcset } = lazyImage.dataset;
-
-            lazyImage.addEventListener('load', resolve);
-            lazyImage.addEventListener('error', reject);
-
-            if (src) lazyImage.src = src;
-            if (srcset) lazyImage.srcset = srcset;
-            if (src && !srcset) lazyImage.srcset = '';
-
-            lazyImage.classList.remove('lazy');
-        });
 
     const lazyImageObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -58,5 +58,3 @@ const lazyLoadImages = async () => {
         loadImagesWhenIdle();
     }, 1000);
 };
-
-export default lazyLoadImages;
