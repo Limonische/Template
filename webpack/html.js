@@ -8,9 +8,7 @@ function generateHtmlPlugins(templateDir) {
     const templateFiles = readdirSync(resolve(__dirname, templateDir));
 
     return templateFiles.map(item => {
-        const parts = item.split('.');
-        const name = parts[0];
-        const extension = parts[1];
+        const [name, extension] = item.split('.');
 
         return new HtmlWebpackPlugin({
             filename: `${name}.html`,
