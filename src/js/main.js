@@ -1,6 +1,6 @@
-import '../sass/styles.sass';
+import '@/sass/styles.sass';
 
-import lazyLoadImages from './modules/lazyLoadImages';
+import lazyLoadImages from '@/js/modules/lazyLoadImages';
 
 const onLoad = () => {
     lazyLoadImages();

@@ -1,4 +1,4 @@
-import { intersectionObserverPolyfill, requestIdleCallbackPolyfill } from './polyfills';
+import { intersectionObserverPolyfill, requestIdleCallbackPolyfill } from '@/js/modules/polyfills';
 
 const lazyLoadImages = async () => {
     const polyfills = [intersectionObserverPolyfill(), requestIdleCallbackPolyfill()];
