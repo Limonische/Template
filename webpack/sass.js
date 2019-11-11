@@ -9,21 +9,15 @@ export default mode => ({
                     mode === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
                     {
                         loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                        },
+                        options: { sourceMap: true },
                     },
                     {
                         loader: 'postcss-loader',
-                        options: {
-                            sourceMap: true,
-                        },
+                        options: { sourceMap: true },
                     },
                     {
                         loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                        },
+                        options: { sourceMap: true },
                     },
                 ],
             },
