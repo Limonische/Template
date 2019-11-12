@@ -10,7 +10,7 @@
 	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4
 		font-size: $min-fs
 		@media screen and (min-width: $min-vw)
-			font-size: calc(#{$min-fs} + #{strip-unit($max-fs - $min-fs)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+			font-size: calc(#{$min-fs} + #{strip-unit($max-fs - $min-fs)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}))
 		@media screen and (min-width: $max-vw)
 			font-size: $max-fs
 
@@ -21,32 +21,3 @@
 	@if length($width) == 2
 		@media screen and (min-width: nth($width, 1)) and (max-width: nth($width, 2))
 			@content
-
-=clearFix
-	&:after
-		content: ''
-		display: block
-		clear: both
-
-=btnBg($bg, $percentage, $mode: 'darken')
-	background-color: $bg
-	&:hover
-		@if $mode == 'darken'
-			background-color: darken($bg, $percentage)
-		@if $mode == 'lighten'
-			background-color: lighten($bg, $percentage)
-
-=floatGrid($columns, $margin)
-	float: left
-	margin: ($margin / 2)
-	width: calc((100% - #{$margin * $columns}) / #{$columns} - 1px)
-	&.long
-		width: calc(((100% - #{$margin * $columns}) / #{$columns}) * 2 + #{$margin} - 1px)
-
-=objectFit($fit: cover, $position: null)
-	object-fit: $fit
-	@if $position
-		object-position: $position
-		font-family: 'object-fit: #{$fit}; object-position: #{$position}'
-	@else
-		font-family: 'object-fit: #{$fit}'
