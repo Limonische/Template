@@ -9,7 +9,9 @@
         "prod": "webpack --mode=production --progress",
         "share": "webpack-dev-server --mode=development --progress --share",
         "lint": "eslint . && echo Lint complete",
-        "lintfix": "eslint . --fix && echo Lintfix complete"
+        "lintfix": "eslint . --fix && echo Lintfix complete",
+        "typecheck": "tsc",
+        "typewatch": "tsc --w"
     },
     "author": "Nikita Gulis",
     "license": "ISC",
@@ -46,6 +48,7 @@
         "pug-loader": "^2.4.0",
         "sass-loader": "^8.0.0",
         "style-loader": "^1.0.1",
+        "typescript": "^3.7.2",
         "uglifyjs-webpack-plugin": "^2.2.0",
         "webpack": "^4.41.2",
         "webpack-cli": "^3.3.10",
@@ -54,6 +57,7 @@
         "workbox-webpack-plugin": "^4.3.1"
     },
     "dependencies": {
+        "@babel/preset-typescript": "^7.7.4",
         "axios": "^0.19.0",
         "core-js": "^3.4.7",
         "intersection-observer": "^0.7.0",

@@ -55,6 +55,7 @@ export default (_, { mode, share }) =>
             devtool: mode === 'development' ? 'source-map' : false,
             plugins: [new CleanWebpackPlugin()],
             resolve: {
+                extensions: ['.js', '.ts', '.json'],
                 alias: { '@': resolve(__dirname, 'src') },
             },
         },

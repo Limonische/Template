@@ -9,6 +9,7 @@ module.exports = ({ cache }) => {
                 corejs: 3,
             },
         ],
+        '@babel/preset-typescript',
     ];
     const plugins = ['@babel/plugin-proposal-class-properties', '@babel/plugin-proposal-private-methods'];
 
