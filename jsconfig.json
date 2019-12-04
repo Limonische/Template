@@ -2,7 +2,11 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./src/*"],
+            "@js/*": ["./src/js/*"],
+            "@sass/*": ["./src/sass/*"],
+            "@images/*": ["./src/images/*"],
+            "@fonts/*": ["./src/fonts/*"]
         }
     },
     "exclude": ["node_modules", "dist"]
