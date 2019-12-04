@@ -1,3 +1,5 @@
+import { resolve } from 'path';
+
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export default mode => ({
@@ -17,7 +19,12 @@ export default mode => ({
                     },
                     {
                         loader: 'sass-loader',
-                        options: { sourceMap: true },
+                        options: {
+                            sourceMap: true,
+                            sassOptions: {
+                                includePaths: [resolve(__dirname, '../src/sass/abstracts')],
+                            },
+                        },
                     },
                 ],
             },
