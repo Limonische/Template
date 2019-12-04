@@ -1,8 +1,11 @@
-@import 'imports/imports'
+@import '~normalize.css'
+@import 'abstracts/abstracts'
 
 \:root
     +fluidType(400px, 1920px, 12px, 18px)
-    font-family: get($fonts, main)
+    font-family: var(--primary-font)
+    color: var(--primary-color)
+    background-color: var(--background-color)
 
 *
     &, &:before, &:after
