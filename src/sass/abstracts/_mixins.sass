@@ -1,23 +1,28 @@
+@use 'sass:math'
+@use 'sass:list'
+
+@use 'functions' as *
+
 =transition($type: all, $time: .3s, $transition: ease-in-out)
 	transition: $type $time $transition
 
 =fluidType($min-vw, $max-vw, $min-fs, $max-fs)
-	$u1: unit($min-vw)
-	$u2: unit($max-vw)
-	$u3: unit($min-fs)
-	$u4: unit($max-fs)
+	$u1: math.unit($min-vw)
+	$u2: math.unit($max-vw)
+	$u3: math.unit($min-fs)
+	$u4: math.unit($max-fs)
 
 	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4
 		font-size: $min-fs
 		@media screen and (min-width: $min-vw)
-			font-size: calc(#{$min-fs} + #{strip-unit($max-fs - $min-fs)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}))
+			font-size: calc(#{$min-fs} + #{stripUnit($max-fs - $min-fs)} * ((100vw - #{$min-vw}) / #{stripUnit($max-vw - $min-vw)}))
 		@media screen and (min-width: $max-vw)
 			font-size: $max-fs
 
 =media($width...)
-	@if length($width) == 1
-		@media screen and (min-width: nth($width, 1))
+	@if list.length($width) == 1
+		@media screen and (min-width: list.nth($width, 1))
 			@content
-	@if length($width) == 2
-		@media screen and (min-width: nth($width, 1)) and (max-width: nth($width, 2))
+	@if list.length($width) == 2
+		@media screen and (min-width: list.nth($width, 1)) and (max-width: list.nth($width, 2))
 			@content
