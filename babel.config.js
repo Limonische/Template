@@ -3,14 +3,22 @@ module.exports = ({ cache }) => {
 
     const presets = [
         [
-            '@babel/preset-env',
+            '@babel/env',
             {
                 useBuiltIns: 'usage',
-                corejs: 3,
+                corejs: {
+                    version: 3,
+                    proposals: true,
+                },
             },
         ],
     ];
-    const plugins = ['@babel/plugin-proposal-class-properties', '@babel/plugin-proposal-private-methods'];
+    const plugins = [
+        '@babel/plugin-proposal-class-properties',
+        '@babel/plugin-proposal-private-methods',
+        '@babel/plugin-proposal-optional-chaining',
+        '@babel/plugin-proposal-nullish-coalescing-operator',
+    ];
 
     return {
         presets,
