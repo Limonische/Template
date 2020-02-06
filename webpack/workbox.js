@@ -5,7 +5,6 @@ export default {
         new GenerateSW({
             clientsClaim: true,
             skipWaiting: true,
-            importsDirectory: 'workbox-assets',
         }),
     ],
 };
