@@ -25,7 +25,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['webpack/*', '*.config.js', '*.*rc.js'],
+            files: ['webpack/*', '*.config*.js', '*.*rc.js'],
             rules: {
                 'import/no-extraneous-dependencies': 0,
             },
